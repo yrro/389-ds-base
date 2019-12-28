@@ -371,7 +371,7 @@ rootdn_load_config(Slapi_PBlock *pb)
         }
         if (ips_tmp) {
             for (i = 0; ips_tmp[i] != NULL; i++) {
-                end = strspn(ips_tmp[i], "0123456789:ABCDEFabcdef.");
+                end = strspn(ips_tmp[i], "0123456789:ABCDEFabcdef.*");
                 if (!end || ips_tmp[i][end] != '\0') {
                     slapi_log_err(SLAPI_LOG_ERR, ROOTDN_PLUGIN_SUBSYSTEM, "rootdn_load_config - "
                                                                           "IP address contains invalid characters (%s), skipping\n",
